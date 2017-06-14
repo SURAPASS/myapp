@@ -74,6 +74,11 @@ app.post('/webhook/', function (req, res) {
 				continue;
 			}
 			
+			if (text == "media") {
+				sendmediacta(sender, page_id);
+				continue;
+			}
+			
 			if (text == "nakuma") {
 			       sendconfigsharenakumacta(sender, page_id);
 				continue;
@@ -172,6 +177,51 @@ function sendconfigsharecta(sender, pageid) {
 		}
 	})
 }
+
+function sendmediacta(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {
+		    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Media testting",
+            "image_url":"https://petersfancybrownhats.com/company_image.png",
+            "subtitle":"We\'ve got the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+            },
+            "buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"type":"element_share"}]              
+          }
+        ]
+      }
+    }
+	}
+
+	
+	request({
+		url: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {access_token: token_val},
+		method: 'POST',
+		json: {
+			recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+			console.log('Error: ', response.body.error)
+		}
+	})
+}
+
 
 function sendconfigsharenakumacta(sender, pageid) {
 	let messageData = {
