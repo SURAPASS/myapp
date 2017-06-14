@@ -153,7 +153,7 @@ function sendconfigsharecta(sender, pageid) {
               "webview_height_ratio": "tall",
               "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
-            "buttons":[{"title":"nakuma sb", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html"}, {"type":"element_share"}]              
+            "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"type":"element_share"}]              
           }
         ]
       }
@@ -197,7 +197,7 @@ function sendmediacta(sender, pageid) {
               "webview_height_ratio": "tall",
               "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
-            "buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"type":"element_share"}]              
+            "buttons":[{"title":"nakuma sb", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb"}, {"title":"intern", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=intern"}, {"type":"element_share"}]              
           }
         ]
       }
