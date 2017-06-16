@@ -83,6 +83,13 @@ app.post('/webhook/', function (req, res) {
 			       sendconfigsharenakumacta(sender, page_id);
 				continue;
 			}
+			
+			if (text == "fbintern") {
+			       sendconfigsharefbinterncta(sender, page_id);
+				continue;
+			}
+			
+			
 			if (text == "help") {
 		          let texttosend = "I can respond to following commands:"
 			  sendTextMessage(sender,page_id, texttosend)
@@ -244,6 +251,29 @@ function sendconfigsharenakumacta(sender, pageid) {
 		}
 	})
 }
+
+function sendconfigsharefbinterncta(sender, pageid) {
+	let messageData = {
+		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"tall sb", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewappleapi.html?env=michelleliu.sb"}]}}		
+	}
+	
+	request({
+		url: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {access_token:gettoken(pageid)},
+		method: 'POST',
+		json: {
+			recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+			console.log('Error: ', response.body.error)
+		}
+	})
+}
+
 function sendTextMessage(sender, pageid, text) {
 	let messageData = { text:text }
 	let token_val = gettoken(pageid)
