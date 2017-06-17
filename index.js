@@ -89,6 +89,11 @@ app.post('/webhook/', function (req, res) {
 				continue;
 			}
 			
+			if (text == "button") {
+			       sendbutton(sender, page_id);
+				continue;
+			}
+			
 			
 			if (text == "help") {
 		          let texttosend = "I can respond to following commands:"
@@ -140,6 +145,7 @@ const token2 = "EAALsKrSyf2MBAKJ0tPOmslV6TDT5WEMqpm3LfsIcC7QUjyw3dpXsijypZAZCUnU
 function gettoken(page_id) {
 	return page_id == "1535203003449978" ? token: token2;
 }
+
 function sendconfigsharecta(sender, pageid) {
 	let token_val = gettoken(pageid)
 	let messageData = {
@@ -184,6 +190,66 @@ function sendconfigsharecta(sender, pageid) {
 		}
 	})
 }
+
+
+function sendbuttona(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {
+		"attachment": {
+  "type": "template",
+  "payload": {
+    "template_type": "generic",
+    "elements": [
+      {
+        "title": "Customize a new message to share?",
+        "buttons": [
+          {
+            "type": "web_url",
+
+            "title": "Yes, please!",
+
+            "url": "https:\/\/exporter-staging.getscribblechat.com",
+
+            "webview_height_ratio": "tall",
+
+            "webview_share_button": "hide",
+
+            "messenger_extensions": true
+          },
+          {
+
+            "type": "postback",
+
+            "title": "Not right now.",
+
+            "payload": "stop"
+
+          }
+        ]
+      }
+    ]
+  }
+}
+	}
+
+	
+	request({
+		url: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {access_token: token_val},
+		method: 'POST',
+		json: {
+			recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+			console.log('Error: ', response.body.error)
+		}
+	})
+}
+
 
 function sendmediacta(sender, pageid) {
 	let token_val = gettoken(pageid)
