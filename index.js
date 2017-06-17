@@ -89,10 +89,6 @@ app.post('/webhook/', function (req, res) {
 				continue;
 			}
 			
-			if (text == "button") {
-			       sendbutton(sender, page_id);
-				continue;
-			}
 			
 			
 			if (text == "help") {
