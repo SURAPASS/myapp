@@ -88,7 +88,11 @@ app.post('/webhook/', function (req, res) {
 			       sendconfigsharefbinterncta(sender, page_id);
 				continue;
 			}
-			
+
+			if (text == "button") {
+			       sendbutton(sender, page_id);
+			       continue;
+			}
 			
 			
 			if (text == "help") {
@@ -191,28 +195,33 @@ function sendconfigsharecta(sender, pageid) {
 function sendbutton(sender, pageid) {
 	let token_val = gettoken(pageid)
 	let messageData = {
-		//"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]}}
-		    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":[
-           {
-            "title":"Welcome to Peter\'s Hats",
-            "image_url":"https://petersfancybrownhats.com/company_image.png",
-            "subtitle":"We\'ve got the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://tbd-agent.herokuapp.com/webviewmedia.html?env=intern",
-              "messenger_extensions": true,
-              "webview_height_ratio": "tall",
-              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-            },
-            "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"type":"element_share"}]              
+		"attachment": {
+  "type": "template",
+  "payload": {
+    "template_type": "generic",
+    "elements": [
+      {
+        "title": "Customize a new message to share?",
+        "buttons": [
+          {
+            "type": "web_url",
+            "title": "Yes, please!",
+            "url": "https:\/\/exporter-staging.getscribblechat.com",
+            "webview_height_ratio": "tall",
+            "webview_share_button": "hide",
+            "messenger_extensions": true
+          },
+          {
+            "type": "postback",
+            "title": "Not right now.",
+            "payload": "stop"
           }
         ]
       }
-    }
+    ]
+  }
+}
+
 	}
 
 	
