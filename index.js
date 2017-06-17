@@ -187,66 +187,6 @@ function sendconfigsharecta(sender, pageid) {
 	})
 }
 
-
-function sendbutton(sender, pageid) {
-	let token_val = gettoken(pageid)
-	let messageData = {
-		"attachment": {
-  "type": "template",
-  "payload": {
-    "template_type": "generic",
-    "elements": [
-      {
-        "title": "Customize a new message to share?",
-        "buttons": [
-          {
-            "type": "web_url",
-
-            "title": "Yes, please!",
-
-            "url": "https:\/\/exporter-staging.getscribblechat.com",
-
-            "webview_height_ratio": "tall",
-
-            "webview_share_button": "hide",
-
-            "messenger_extensions": true
-          },
-          {
-
-            "type": "postback",
-
-            "title": "Not right now.",
-
-            "payload": "stop"
-
-          }
-        ]
-      }
-    ]
-  }
-}
-	}
-
-	
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token: token_val},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
-}
-
-
 function sendmediacta(sender, pageid) {
 	let token_val = gettoken(pageid)
 	let messageData = {
