@@ -188,7 +188,7 @@ function sendconfigsharecta(sender, pageid) {
 }
 
 
-function sendbuttona(sender, pageid) {
+function sendbutton(sender, pageid) {
 	let token_val = gettoken(pageid)
 	let messageData = {
 		"attachment": {
