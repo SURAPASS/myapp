@@ -171,7 +171,15 @@ function sendconfigsharecta(sender, pageid) {
               "webview_height_ratio": "tall",
               "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
-            "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"type":"element_share"}]              
+            "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, 
+		       {
+			                   "type": "web_url",
+            "title": "nakuma.sb",
+            "url": "https://tbd-agent.herokuapp.com/webview.html?env=nakuma.sb",
+            "webview_height_ratio": "tall",
+            "webview_share_button": "hide",
+            "messenger_extensions": true
+		       }]              
           }
         ]
       }
