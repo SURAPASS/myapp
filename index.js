@@ -320,12 +320,12 @@ function sendmediacta(sender, pageid) {
             "subtitle":"We\'ve got the right hat for everyone.",
             "default_action": {
               "type": "web_url",
-              "url": "https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb",
+              "url": "https://tbd-agent.herokuapp.com/webviewmedia.html",
               "messenger_extensions": true,
               "webview_height_ratio": "tall",
               "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
-            "buttons":[{"title":"nakuma sb", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb"}, {"title":"intern", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=intern"}, {"type":"element_share"}]              
+            "buttons":[{"title":"media webview", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html"}, {"title":"PROD", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html"}, {"type":"element_share"}]              
           }
         ]
       }
