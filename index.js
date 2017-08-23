@@ -175,7 +175,7 @@ function sendconfigsharecta(sender, pageid) {
 		       {
 			                   "type": "web_url",
             "title": "nakuma.sb",
-            "url": "https://www.nakuma.sb.facebook.com/commerce/extension/example/",
+            "url": "https://tbd-agent.herokuapp.com/webview.html?env=nakuma.sb",
             "webview_height_ratio": "tall",
             "webview_share_button": "hide",
             "messenger_extensions": true
