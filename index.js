@@ -286,10 +286,13 @@ function sendbuttoninternal(sender, pageid) {
             "messenger_extensions": true
           },
           {
-            "type": "postback",
-            "title": "Not right now.",
-            "payload": "stop"
-          }
+            "type": "web_url",
+            "title": "Yes, please!",
+            "url": "https://www.facebook.com/commerce/update/",
+            "webview_height_ratio": "tall",
+            "webview_share_button": "hide",
+            "messenger_extensions": true
+          },
         ]
       }
     ]
