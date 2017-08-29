@@ -118,6 +118,10 @@ app.post('/webhook/', function (req, res) {
 
 			//sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
+
+		if (event.quick_reply) {
+			handlequickreply(sender, page_id, event.quick_reply.payload);
+		}
 		if (event.postback) {
 			sendTextMessage(sender, page_id, "senderId: "+ sender);
 			let text = JSON.stringify(event.postback)
@@ -185,6 +189,23 @@ function sendquickreply(sender, pageid) {
         "payload":"VID_ATTACHMENT"
       }
     ]
+  }
+	sendCall(sender, pageid, messageData);
+}
+
+function handlequickreply(sender, page_id, payload) {
+	let messageData = {
+		"attachment":{
+	    "type":"template",
+	    "payload":{
+		     "template_type":"media",
+		      "elements":[{
+						 "media_type":"image",
+						  "attachment_id": "1693671860936424",
+				     "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
+			    }]
+	    }
+    }
   }
 	sendCall(sender, pageid, messageData);
 }
