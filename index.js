@@ -126,30 +126,23 @@ app.post('/webhook/', function (req, res) {
 			continue
 		}
 
-                if (event.referral) {
-                        let text = JSON.stringify(event.referral)
-                        sendTextMessage(sender, page_id, "Referral event received: "+text.substring(0, 200))
-                        continue
-                }
+    if (event.referral) {
+            let text = JSON.stringify(event.referral)
+            sendTextMessage(sender, page_id, "Referral event received: "+text.substring(0, 200))
+            continue
+    }
 
 		if (event.attachments) {
-                        let text = JSON.stringify(event.attachments)
-                        sendTextMessage(sender, page_id, "Attachments received: "+text.substring(0, 200))
-                        continue
-                }
+      let text = JSON.stringify(event.attachments)
+      sendTextMessage(sender, page_id, "Attachments received: "+text.substring(0, 200))
+      continue
+   }
 
-                if (event.account_linking) {
-                        let text = JSON.stringify(event)
-                        sendTextMessage(sender, page_id, "Account Linking event data at webhook: "+text.substring(0, 200))
-                        continue
-                }
-
-								if ( text == "mediaattachment") {
-									sendquickreply(sender, page_id);
-									continue;
-								}
-
-
+  if (event.account_linking) {
+          let text = JSON.stringify(event)
+          sendTextMessage(sender, page_id, "Account Linking event data at webhook: "+text.substring(0, 200))
+          continue
+  }
 
 	}
 	res.sendStatus(200)
