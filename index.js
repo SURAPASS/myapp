@@ -191,14 +191,25 @@ function sendquickreply(sender, pageid) {
 }
 
 function handlequickreply(sender, page_id, payload) {
+	let attachment_id = 1693671860936424;
+	let media_type = "image";
+	if (payload ==  "VID_ATTACHMENT") {
+		media_type = "video";
+		attachment_id = "1694547527515524";
+	}
+
+	if (payload ==  "GIF_ATTACHMENT") {
+		attachment_id = "1697200947250182";
+	}
+
 	let messageData = {
 		"attachment":{
 	    "type":"template",
 	    "payload":{
 		     "template_type":"media",
 		      "elements":[{
-						 "media_type":"image",
-						  "attachment_id": "1693671860936424",
+						 "media_type": media_type,
+						  "attachment_id":  attachment_id,
 				     "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
 			    }]
 	    }
