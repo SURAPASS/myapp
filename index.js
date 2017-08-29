@@ -117,9 +117,10 @@ app.post('/webhook/', function (req, res) {
 			}
 		}
 
-		//if (event.message && event.message.quick_reply) {
-		//	handlequickreply(sender, page_id, event.message.quick_reply.payload);
-		//}
+		if (event.message && event.message.quick_reply) {
+			handlequickreply(sender, page_id, event.message.quick_reply.payload);
+			continue;
+		}
 
 		if (event.postback) {
 			sendTextMessage(sender, page_id, "senderId: "+ sender);
