@@ -34,7 +34,7 @@ app.post('/webhook/', function (req, res) {
 		let sender = event.sender.id
 		let page_id = event.recipient.id
 		if (event.message && event.message.text) {
-			sendTextMessage(sender, page_id, "senderId: "+ sender + " page id  " + page_id);
+			//sendTextMessage(sender, page_id, "senderId: "+ sender + " page id  " + page_id);
 			let text = event.message.text.toLowerCase();
 			if (text === 'generic') {
 				sendGenericMessage(sender, page_id)
