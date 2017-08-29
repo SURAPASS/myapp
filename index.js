@@ -514,21 +514,7 @@ function sendGenericMessage(sender, pageid) {
 			}
 		}
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:gettoken(pageid)},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+        sendCall(sender, pageid, messageData);
 }
 
 
@@ -558,21 +544,8 @@ function sendsharecta(sender, pageid) {
   }
 }		
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:gettoken(pageid)},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+  sendCall(sender, pageid, messageData);
+	
 }
 
 
@@ -629,22 +602,7 @@ function sendsharectapreview(sender, pageid) {
     ]
   }
 }		
-	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:gettoken(pageid)},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+  sendCall(sender, pageid, messageData);
 }
 
 
@@ -665,21 +623,7 @@ function sendAccountLinkMessage(sender, pageid) {
       }
     }
   }
-  request({
-    url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token:gettoken(pageid)},
-    method: 'POST',
-    json: {
-      recipient: {id:sender},
-      message: messageData,
-    }
-  }, function(error, response, body) {
-    if (error) {
-      console.log('Error sending messages: ', error)
-    } else if (response.body.error) {
-      console.log('Error: ', response.body.error)
-    }
-  })
+  sendCall(sender, pageid, messageData);
 }
 
 
