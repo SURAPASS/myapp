@@ -119,8 +119,8 @@ app.post('/webhook/', function (req, res) {
 			//sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 
-		if (event.quick_reply) {
-			handlequickreply(sender, page_id, event.quick_reply.payload);
+		if (event.message && event.message.quick_reply) {
+			handlequickreply(sender, page_id, event.message.quick_reply.payload);
 		}
 		if (event.postback) {
 			sendTextMessage(sender, page_id, "senderId: "+ sender);
