@@ -103,8 +103,7 @@ app.post('/webhook/', function (req, res) {
 			       sendbuttoninternal(sender, page_id);
 			       continue;
 			}
-			
-			
+						
 			if (text == "help") {
 		          let texttosend = "I can respond to following commands:"
 			  sendTextMessage(sender,page_id, texttosend)
@@ -702,7 +701,12 @@ function sendAccountLinkMessageNakuma(sender, pageid) {
       }
     }
   }
-  request({
+  sendCall(sender, pageid, messageData);
+}
+
+
+function sendCall(sender, pageid, messageData) {
+ request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {access_token:gettoken(pageid)},
     method: 'POST',
@@ -716,7 +720,7 @@ function sendAccountLinkMessageNakuma(sender, pageid) {
     } else if (response.body.error) {
       console.log('Error: ', response.body.error)
     }
-  })
+  })	
 }
 
 
@@ -736,21 +740,7 @@ function sendAccountUnLinkMessage(sender, pageid) {
       }
     }
   }
-  request({
-    url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token:gettoken(pageid)},
-    method: 'POST',
-    json: {
-      recipient: {id:sender},
-      message: messageData,
-    }
-  }, function(error, response, body) {
-    if (error) {
-      console.log('Error sending messages: ', error)
-    } else if (response.body.error) {
-      console.log('Error: ', response.body.error)
-    }
-  })
+  sendCall(sender, pageid, messageData);
 }
 
 
