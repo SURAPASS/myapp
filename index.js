@@ -204,7 +204,7 @@ function handlequickreply(sender, page_id, payload) {
 	    }
     }
   }
-	sendCall(sender, pageid, messageData);
+	sendCall(sender, page_id, messageData);
 }
 
 function sendconfigsharecta(sender, pageid) {
