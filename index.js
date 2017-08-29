@@ -40,50 +40,50 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender, page_id)
 				continue
 			}
-			
+
 			if (text==="linkaccnt") {
 		          sendAccountLinkMessage(sender, page_id)
 			  continue
 			}
-			
-						
+
+
 			if (text==="linkaccntnakuma") {
 		          sendAccountLinkMessageNakuma(sender, page_id)
 			  continue
 			}
-			
-			
+
+
 			if (text==="unlinkaccnt") {
 			  sendAccountUnLinkMessage(sender, page_id);
 			  continue;
 			}
-			
+
 			if (text === "sharecta") {
 			 	sendsharecta(sender, page_id);
 				continue;
 			}
-			
+
 			if (text == "previewsharecta") {
 			 	sendsharectapreview(sender, page_id);
 				continue;
-				
+
 			}
-			
+
 			if (text == "configpreviewshare") {
 				sendconfigsharecta(sender, page_id);
 				continue;
 			}
-			
+
 			if (text == "media") {
 				sendmediacta(sender, page_id);
 				continue;
 			}
-			
+
 			if (text == "nakuma") {
 			       sendconfigsharenakumacta(sender, page_id);
 				continue;
 			}
-			
+
 			if (text == "fbintern") {
 			       sendconfigsharefbinterncta(sender, page_id);
 				continue;
@@ -93,24 +93,24 @@ app.post('/webhook/', function (req, res) {
 			       sendbutton(sender, page_id);
 			       continue;
 			}
-			
+
 			if (text == "buttonc") {
 			       sendbuttonc(sender, page_id);
 			       continue;
 			}
-			
+
 			if (text == "internalteam") {
 			       sendbuttoninternal(sender, page_id);
 			       continue;
 			}
-						
+
 			if (text == "help") {
 		          let texttosend = "I can respond to following commands:"
 			  sendTextMessage(sender,page_id, texttosend)
 			  texttosend = "generic, linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media"
 			  sendTextMessage(sender, page_id, texttosend)
 			}
-			
+
 			//sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
@@ -137,9 +137,9 @@ app.post('/webhook/', function (req, res) {
                         sendTextMessage(sender, page_id, "Account Linking event data at webhook: "+text.substring(0, 200))
                         continue
                 }
-		
-		
-		
+
+
+
 	}
 	res.sendStatus(200)
 })
@@ -179,7 +179,7 @@ function sendconfigsharecta(sender, pageid) {
               "webview_height_ratio": "tall",
               "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
-            "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, 
+            "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"},
 		       {
 			                   "type": "web_url",
             "title": "nakuma.sb",
@@ -187,14 +187,14 @@ function sendconfigsharecta(sender, pageid) {
             "webview_height_ratio": "tall",
             "webview_share_button": "hide",
             "messenger_extensions": true
-		       }]              
+		       }]
           }
         ]
       }
     }
 	}
 
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token: token_val},
@@ -245,7 +245,7 @@ function sendbutton(sender, pageid) {
 
 	}
 
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token: token_val},
@@ -300,7 +300,7 @@ function sendbuttoninternal(sender, pageid) {
 
 	}
 
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token: token_val},
@@ -350,7 +350,7 @@ function sendbuttonc(sender, pageid) {
 
 	}
 
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token: token_val},
@@ -388,14 +388,14 @@ function sendmediacta(sender, pageid) {
               "webview_height_ratio": "tall",
               "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
-            "buttons":[{"title":"media webview", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html"}, {"title":"nakuma.sb.", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb"}, {"type":"element_share"}]              
+            "buttons":[{"title":"media webview", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html"}, {"title":"nakuma.sb.", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewmedia.html?env=nakuma.sb"}, {"type":"element_share"}]
           }
         ]
       }
     }
 	}
 
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token: token_val},
@@ -416,9 +416,9 @@ function sendmediacta(sender, pageid) {
 
 function sendconfigsharenakumacta(sender, pageid) {
 	let messageData = {
-		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"tall sb", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=nakuma.sb"}]}}		
+		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"tall sb", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=nakuma.sb"}]}}
 	}
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token:gettoken(pageid)},
@@ -438,9 +438,9 @@ function sendconfigsharenakumacta(sender, pageid) {
 
 function sendconfigsharefbinterncta(sender, pageid) {
 	let messageData = {
-		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"PROD", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewappleapi.html"}]}}		
+		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"PROD", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewappleapi.html"}]}}
 	}
-	
+
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token:gettoken(pageid)},
@@ -520,7 +520,7 @@ function sendGenericMessage(sender, pageid) {
 
 function sendsharecta(sender, pageid) {
 	let messageData = {
-		
+
   "attachment": {
     "type": "template",
     "payload": {
@@ -542,10 +542,10 @@ function sendsharecta(sender, pageid) {
       }
     ]
   }
-}		
+}
 	}
   sendCall(sender, pageid, messageData);
-	
+
 }
 
 
@@ -553,7 +553,7 @@ function sendsharecta(sender, pageid) {
 
 function sendsharectapreview(sender, pageid) {
 	let messageData = {
-		
+
   "attachment": {
     "type": "template",
     "payload": {
@@ -601,7 +601,8 @@ function sendsharectapreview(sender, pageid) {
       }
     ]
   }
-}		
+}
+}
   sendCall(sender, pageid, messageData);
 }
 
@@ -664,7 +665,7 @@ function sendCall(sender, pageid, messageData) {
     } else if (response.body.error) {
       console.log('Error: ', response.body.error)
     }
-  })	
+  })
 }
 
 
