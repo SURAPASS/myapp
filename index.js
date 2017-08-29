@@ -111,10 +111,7 @@ app.post('/webhook/', function (req, res) {
 			  sendTextMessage(sender, page_id, texttosend)
 			}
 
-			if ( text == "mediaattachment") {
-				sendquickreply(sender, page_id);
-				continue;
-			}
+
 
 			//sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
@@ -146,6 +143,11 @@ app.post('/webhook/', function (req, res) {
                         sendTextMessage(sender, page_id, "Account Linking event data at webhook: "+text.substring(0, 200))
                         continue
                 }
+
+								if ( text == "mediaattachment") {
+									sendquickreply(sender, page_id);
+									continue;
+								}
 
 
 
