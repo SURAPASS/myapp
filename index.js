@@ -111,6 +111,11 @@ app.post('/webhook/', function (req, res) {
 			  sendTextMessage(sender, page_id, texttosend)
 			}
 
+			if ( text == "mediaattachment") {
+				sendquickreply(sender, page_id);
+				continue;
+			}
+
 			//sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
@@ -157,6 +162,31 @@ function gettoken(page_id) {
 		 return token3;
 	}
 	return page_id == "1535203003449978" ? token: token2;
+}
+
+function sendquickreply(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {
+		"text": "please select media attachment send",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"image_attachment",
+        "payload":"IMG_ATTACHMENT"
+      },
+      {
+        "content_type":"text",
+        "title":"gif_attachment",
+        "payload":"GIF_ATTACHMENT"
+      },
+      {
+        "content_type":"text",
+        "title":"video_attachment",
+        "payload":"VID_ATTACHMENT"
+      }
+    ]
+  }
+	sendCall(sender, pageid, messageData);
 }
 
 function sendconfigsharecta(sender, pageid) {
