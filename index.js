@@ -191,15 +191,15 @@ function sendquickreply(sender, pageid) {
 }
 
 function handlequickreply(sender, page_id, payload) {
-	let attachment_id = 1693671860936424;
+	let attachment_id = 123047711678597;
 	let media_type = "image";
 	if (payload ==  "VID_ATTACHMENT") {
 		media_type = "video";
-		attachment_id = "1694547527515524";
+		attachment_id = "123047561678612";
 	}
 
 	if (payload ==  "GIF_ATTACHMENT") {
-		attachment_id = "1697200947250182";
+		attachment_id = "123047615011940";
 	}
 
 	let messageData = {
