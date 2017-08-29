@@ -193,23 +193,7 @@ function sendconfigsharecta(sender, pageid) {
       }
     }
 	}
-
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token: token_val},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 
@@ -244,23 +228,7 @@ function sendbutton(sender, pageid) {
 }
 
 	}
-
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token: token_val},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 
@@ -300,22 +268,7 @@ function sendbuttoninternal(sender, pageid) {
 
 	}
 
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token: token_val},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 function sendbuttonc(sender, pageid) {
@@ -349,23 +302,7 @@ function sendbuttonc(sender, pageid) {
 }
 
 	}
-
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token: token_val},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 
@@ -394,23 +331,7 @@ function sendmediacta(sender, pageid) {
       }
     }
 	}
-
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token: token_val},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 
@@ -418,44 +339,14 @@ function sendconfigsharenakumacta(sender, pageid) {
 	let messageData = {
 		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"tall sb", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=nakuma.sb"}]}}
 	}
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:gettoken(pageid)},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 function sendconfigsharefbinterncta(sender, pageid) {
 	let messageData = {
 		"attachment":{"type":"template","payload":{"template_type":"button","text":"Extension test","buttons":[{"title":"full intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"tall prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}, {"title":"PROD", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webviewappleapi.html"}]}}
 	}
-
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:gettoken(pageid)},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	sendCall(sender, pageid, messageData);
 }
 
 function sendTextMessage(sender, pageid, text) {
