@@ -100,25 +100,27 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			if (text == "internalteam") {
-			       sendbuttoninternal(sender, page_id);
-			       continue;
+				sendbuttoninternal(sender, page_id);
+			  continue;
 			}
 
 			if (text == "help") {
-		          let texttosend = "I can respond to following commands:"
-			  sendTextMessage(sender,page_id, texttosend)
+		    let texttosend = "I can respond to following commands:"
 			  texttosend = "generic, linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media"
 			  sendTextMessage(sender, page_id, texttosend)
+				continue;
 			}
 
-
-
-			//sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+			if (text == "mediaattachment") {
+				sendquickreply(sender, page_id);
+				continue;
+			}
 		}
 
 		//if (event.message && event.message.quick_reply) {
 		//	handlequickreply(sender, page_id, event.message.quick_reply.payload);
 		//}
+
 		if (event.postback) {
 			sendTextMessage(sender, page_id, "senderId: "+ sender);
 			let text = JSON.stringify(event.postback)
@@ -143,7 +145,6 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender, page_id, "Account Linking event data at webhook: "+text.substring(0, 200))
           continue
   }
-
 	}
 	res.sendStatus(200)
 })
