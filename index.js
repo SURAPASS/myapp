@@ -269,12 +269,27 @@ function sendwebview(sender, pageid) {
       			"type":"template",
       			"payload":{
         		"template_type":"generic",
-        		"elements":[{
+        		"elements":[
+				{
             			"title":"Welcome to Peter\'s Hats",
             			"image_url":"https://petersfancybrownhats.com/company_image.png",
             			"subtitle":"We have got the right hat for everyone.",
             			"buttons":[{"title":"Full", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
-          		}]
+          		        },
+				{
+            			"title":"Welcome to Peter\'s Hats",
+            			"image_url":"https://petersfancybrownhats.com/company_image.png",
+            			"subtitle":"We have got the right hat for everyone.",
+            			"buttons":[{"title":"Tall", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
+          		        },
+				{
+            			"title":"Welcome to Peter\'s Hats",
+            			"image_url":"https://petersfancybrownhats.com/company_image.png",
+            			"subtitle":"We have got the right hat for everyone.",
+            			"buttons":[{"title":"Compact", "type":"web_url", "webview_height_ratio": "compact", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
+          		        }
+				
+		       ]
       		}
     	     }
 	}
