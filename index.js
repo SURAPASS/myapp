@@ -112,7 +112,7 @@ app.post('/webhook/', function (req, res) {
 
 			if (text == "help") {
 		    let texttosend = "I can respond to following commands:"
-			  texttosend = "generic, linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media, mediaattachment"
+			  texttosend = "webview, generic, linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media, mediaattachment"
 			  sendTextMessage(sender, page_id, texttosend)
 				continue;
 			}
