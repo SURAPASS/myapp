@@ -73,6 +73,12 @@ app.post('/webhook/', function (req, res) {
 				sendconfigsharecta(sender, page_id);
 				continue;
 			}
+			
+			if (text == "webview") {
+				sendwebview(sender, page_id);
+				continue;
+			}
+
 
 			if (text == "media") {
 				sendmediacta(sender, page_id);
@@ -251,6 +257,26 @@ function sendconfigsharecta(sender, pageid) {
         ]
       }
     }
+	}
+	sendCall(sender, pageid, messageData);
+}
+
+
+function sendwebview(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {		    
+		"attachment":{
+      			"type":"template",
+      			"payload":{
+        		"template_type":"generic",
+        		"elements":[{
+            			"title":"Welcome to Peter\'s Hats",
+            			"image_url":"https://petersfancybrownhats.com/company_image.png",
+            			"subtitle":"We have got the right hat for everyone.",
+            			"buttons":[{"title":"Full", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
+          		}]
+      		}
+    	     }
 	}
 	sendCall(sender, pageid, messageData);
 }
