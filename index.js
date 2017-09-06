@@ -213,7 +213,7 @@ function sendquickreply(sender, pageid) {
 
 function handlequickreply(sender, page_id, payload) {
 	if (payload == "IMG_FB" || payload == "GIF_FB" || payload == "VIDEO_FB") {
-		handlequickreply(sender, page_id, payload);
+		handlequickreplyfb(sender, page_id, payload);
 		return;
 	}
 	let attachment_id = 123047711678597;
