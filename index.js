@@ -246,6 +246,7 @@ function handlequickreply(sender, page_id, payload) {
 
 function handlequickreplyfb(sender, page_id, payload) {
 	let media_type = "image";
+	let url = "";
 	if (payload ==  "IMG_FB") {
 		media_type = "image";
 		url = "https://www.facebook.com/cnn/photos/a.369810096508.159795.5550296508/10157205144416509/?type=3&theater";
