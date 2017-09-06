@@ -190,7 +190,22 @@ function sendquickreply(sender, pageid) {
         "content_type":"text",
         "title":"video_attachment",
         "payload":"VID_ATTACHMENT"
-      }
+      },
+      {
+        "content_type":"text",
+        "title":"FB image",
+        "payload":"IMG_FB"
+      },
+      {
+        "content_type":"text",
+        "title":"FB  gif",
+        "payload":"GIF_FB"
+      },
+      {
+        "content_type":"text",
+        "title":"FB video",
+        "payload":"VIDEO_FB"
+      }	    
     ]
   }
 	sendCall(sender, pageid, messageData);
