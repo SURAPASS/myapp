@@ -212,6 +212,10 @@ function sendquickreply(sender, pageid) {
 }
 
 function handlequickreply(sender, page_id, payload) {
+	if (payload == "IMG_FB" || payload == "GIF_FB" || payload == "VIDEO_FB") {
+		handlequickreply(sender, page_id, payload);
+		return;
+	}
 	let attachment_id = 123047711678597;
 	let media_type = "image";
 	if (payload ==  "VID_ATTACHMENT") {
@@ -238,6 +242,36 @@ function handlequickreply(sender, page_id, payload) {
   }
 	sendCall(sender, page_id, messageData);
 }
+
+
+function handlequickreplyfb(sender, page_id, payload) {
+	let media_type = "image";
+	if (payload ==  "IMG_FB") {
+		media_type = "image";
+		url = "https://www.facebook.com/cnn/photos/a.369810096508.159795.5550296508/10157205144416509/?type=3&theater";
+	}
+
+	if (payload ==  "GIF_FB" || payload == "VIDEO_FB") {
+		url = "https://www.facebook.com/cnn/videos/10157205975831509";
+	}
+
+	let messageData = {
+		"attachment":{
+	    "type":"template",
+	    "payload":{
+		     "template_type":"media",
+		      "elements":[{
+						 "media_type": media_type,
+						  "url":  url,
+				     "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
+			    }]
+	    }
+    }
+  }
+	sendCall(sender, page_id, messageData);
+}
+
+
 
 function sendconfigsharecta(sender, pageid) {
 	let token_val = gettoken(pageid)
