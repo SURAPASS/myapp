@@ -253,6 +253,7 @@ function handlequickreplyfb(sender, page_id, payload) {
 	}
 
 	if (payload ==  "GIF_FB" || payload == "VIDEO_FB") {
+		media_type = "video";
 		url = "https://www.facebook.com/cnn/videos/10157205975831509";
 	}
 
