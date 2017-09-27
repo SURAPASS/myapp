@@ -112,12 +112,17 @@ app.post('/webhook/', function (req, res) {
 
 			if (text == "help") {
 		    let texttosend = "I can respond to following commands:"
-			  texttosend = "webview, generic, linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media, mediaattachment"
+			  texttosend = "webview, generic, mediaapi,linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media, mediaattachment"
 			  sendTextMessage(sender, page_id, texttosend)
 				continue;
 			}
 
 			if (text == "mediaattachment") {
+				sendquickreply(sender, page_id);
+				continue;
+			}
+			
+			if (text == "mediaapi") {
 				sendquickreply(sender, page_id);
 				continue;
 			}
