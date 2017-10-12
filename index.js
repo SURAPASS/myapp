@@ -85,6 +85,11 @@ app.post('/webhook/', function (req, res) {
 				continue;
 			}
 
+			if (text == "userinfo") {
+				senduserinfo(sender, page_id);
+				continue;
+			}
+
 			if (text == "nakuma") {
 			       sendconfigsharenakumacta(sender, page_id);
 				continue;
@@ -215,6 +220,25 @@ function sendquickreply(sender, pageid) {
         "content_type":"text",
         "title":"FB video",
         "payload":"VIDEO_FB"
+      }	    
+    ]
+  }
+	sendCall(sender, pageid, messageData);
+}
+
+function senduserinfo(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {
+		"text": "This is for quick reply test. user info",
+    "quick_replies":[
+      {
+        "content_type":"user_email",
+      },
+      {
+        "content_type":"user_phone_number",
+      },
+      {
+        "content_type":"user_city",
       }	    
     ]
   }
