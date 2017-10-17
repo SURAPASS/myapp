@@ -237,9 +237,6 @@ function senduserinfo(sender, pageid) {
       {
         "content_type":"user_phone_number",
       },
-      {
-        "content_type":"user_city",
-      }	    
     ]
   }
 	sendCall(sender, pageid, messageData);
