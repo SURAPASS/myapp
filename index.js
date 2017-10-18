@@ -395,7 +395,7 @@ function sendrate(sender, pageid) {
             			"title":"Welcome to Peter\'s Hats",
             			"image_url":"https://petersfancybrownhats.com/company_image.png",
             			"subtitle":"We have got the right hat for everyone.",
-            			"buttons":[{"title":"Rate", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"www.google.com"}]
+            			"buttons":[{"title":"Rate", "type":"web_url", "webview_height_ratio": "tall",  "url":"www.google.com"}]
           		        }				
 		       ]
       		}
