@@ -131,6 +131,11 @@ app.post('/webhook/', function (req, res) {
 				sendquickreply(sender, page_id);
 				continue;
 			}
+
+			if (text == "rate") {
+			 	sendrate(sender, page_id);
+				continue;
+			}
 		}
 
 		if (event.message && event.message.quick_reply) {
@@ -371,6 +376,27 @@ function sendwebview(sender, pageid) {
             			"buttons":[{"title":"Compact", "type":"web_url", "webview_height_ratio": "compact", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
           		        }
 				
+		       ]
+      		}
+    	     }
+	}
+	sendCall(sender, pageid, messageData);
+}
+
+function sendrate(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {		    
+		"attachment":{
+      			"type":"template",
+      			"payload":{
+        		"template_type":"generic",
+        		"elements":[
+				{
+            			"title":"Welcome to Peter\'s Hats",
+            			"image_url":"https://petersfancybrownhats.com/company_image.png",
+            			"subtitle":"We have got the right hat for everyone.",
+            			"buttons":[{"title":"Rate", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"www.google.com"}]
+          		        }				
 		       ]
       		}
     	     }
