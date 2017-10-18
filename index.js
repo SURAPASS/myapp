@@ -399,7 +399,16 @@ function sendrate(sender, pageid) {
 					  {"title":"Small Intern", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.intern.messenger.com/marketplace_rating/popover/"},
 					   {"title":"Small PROD", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.messenger.com/marketplace_rating/popover/"}
 					  ]
-          		        }				
+          		        },
+								{
+            			"title":"Welcome to Peter\'s Hats",
+            			"image_url":"https://petersfancybrownhats.com/company_image.png",
+            			"subtitle":"We have got the right hat for everyone.",
+            			"buttons":[{"title":"Small FB SB", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.hdragomir.sb.facebook.com/marketplace_rating/popover/"},
+					  {"title":"Small FB Intern", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.intern.facebook.com/marketplace_rating/popover/"},
+					   {"title":"Small FB PROD", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.facebook.com/marketplace_rating/popover/"}
+					  ]
+          		        }
 		       ]
       		}
     	     }
