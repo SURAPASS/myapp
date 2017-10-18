@@ -395,8 +395,10 @@ function sendrate(sender, pageid) {
             			"title":"Welcome to Peter\'s Hats",
             			"image_url":"https://petersfancybrownhats.com/company_image.png",
             			"subtitle":"We have got the right hat for everyone.",
-            			"buttons":[{"title":"Rate Tall", "type":"web_url", "webview_height_ratio": "tall",  "url":"www.google.com"},
-					  {"title":"Rate Small", "type":"web_url", "webview_height_ratio": "compact",  "url":"www.facebook.com"}]
+            			"buttons":[{"title":"Small SB", "type":"web_url", "webview_height_ratio": "tall",  "url":"https://www.hdragomir.sb.messenger.com/marketplace_rating/popover"},
+					  {"title":"Small Intern", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.intern.messenger.com/marketplace_rating/popover"},
+					   {"title":"Small PROD", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.messenger.com/marketplace_rating/popover"}
+					  ]
           		        }				
 		       ]
       		}
