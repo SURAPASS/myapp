@@ -45,7 +45,11 @@ app.post('/webhook/', function (req, res) {
 		          sendAccountLinkMessage(sender, page_id)
 			  continue
 			}
-
+			
+			if (text==="linkaccnt2") {
+		          sendAccountLinkMessage2(sender, page_id)
+			  continue
+			}
 
 			if (text==="linkaccntnakuma") {
 		          sendAccountLinkMessageNakuma(sender, page_id)
@@ -730,6 +734,26 @@ function sendAccountLinkMessage(sender, pageid) {
           "buttons": [{
             "type": "account_link",
             "url": "https://our.intern.facebook.com/intern/messaging/account_linking_tool"
+          }]
+        }]
+      }
+    }
+  }
+  sendCall(sender, pageid, messageData);
+}
+
+function sendAccountLinkMessage2(sender, pageid) {
+  let messageData = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [{
+          "title": "Welcome to M-Bank",
+          "image_url": "http://www.example.com/images/m-bank.png",
+          "buttons": [{
+            "type": "account_link",
+            "url": "https://www.web.com/#/login"
           }]
         }]
       }
