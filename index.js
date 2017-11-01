@@ -119,6 +119,11 @@ app.post('/webhook/', function (req, res) {
 			  continue;
 			}
 
+			if (text == "gk") {
+				sendbuttongk(sender, page_id);
+			  continue;
+			}
+
 			if (text == "help") {
 		    let texttosend = "I can respond to following commands:"
 			  texttosend = "webview, generic, mediaapi,linkaccnt, unlinkaccnt, sharecta, previewsharecta, configpreviewshare,  media, mediaattachment"
@@ -436,6 +441,40 @@ function sendbutton(sender, pageid) {
             "type": "web_url",
             "title": "Yes, please!",
             "url": "https:\/\/exporter-staging.getscribblechat.com",
+            "webview_height_ratio": "tall",
+            "webview_share_button": "hide",
+            "messenger_extensions": true
+          },
+          {
+            "type": "postback",
+            "title": "Not right now.",
+            "payload": "stop"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+	}
+	sendCall(sender, pageid, messageData);
+}
+
+function sendbuttongk(sender, pageid) {
+	let token_val = gettoken(pageid)
+	let messageData = {
+		"attachment": {
+  "type": "template",
+  "payload": {
+    "template_type": "generic",
+    "elements": [
+      {
+        "title": "Debug the gkx",
+        "buttons": [
+          {
+            "type": "web_url",
+            "title": "Click here",
+            "url": "https://tbd-agent.herokuapp.com/webview.html?env=colep.sb",
             "webview_height_ratio": "tall",
             "webview_share_button": "hide",
             "messenger_extensions": true
