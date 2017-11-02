@@ -385,7 +385,7 @@ function sendwebview(sender, pageid) {
             			"title":"Webview close",
             			"image_url":"https://www.messenger.com/closeWindow/",
             			"subtitle":"We have got the right hat for everyone.",
-            			"buttons":[{"title":"Compact", "type":"web_url", "webview_height_ratio": "compact", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
+            			"buttons":[{"title":"Compact", "type":"web_url", "webview_height_ratio": "compact",  "url":"https://www.messenger.com/closeWindow/"}]
           		        }
 				
 		       ]
