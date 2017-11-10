@@ -879,6 +879,39 @@ function getURL(text) {
   return null;	
 }
 
+function uploadimage(url) {
+  let messageData = {
+     "attachment": {
+      "type":"image", 
+      "payload":{
+        "is_reusable": true,
+        "url": url
+      }
+    }
+  }
+  
+  uploadCall(pageid, messageData)	
+}
+
+function uploadCall(pageid, messageData) {
+ request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token:gettoken(pageid)},
+    method: 'POST',
+    json: {
+      message: messageData,
+    }
+  }, function(error, response, body) {
+    if (error) {
+      console.log('Error sending messages: ', error)
+    } else if (response.body.error) {
+      console.log('Error: ', response.body.error)
+    } else {
+	 console.log('Error: ', response.body)   
+    }
+  })
+}
+
 // spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
