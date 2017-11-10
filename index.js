@@ -36,6 +36,11 @@ app.post('/webhook/', function (req, res) {
 		if (event.message && event.message.text) {
 			//sendTextMessage(sender, page_id, "senderId: "+ sender + " page id  " + page_id);
 			let text = event.message.text.toLowerCase();
+			
+			let is_url = ValidURL(text);
+			if (is_url) {
+				sendTextMessage(sender, page_id, "this is url")
+			}
 			if (text === 'generic') {
 				sendGenericMessage(sender, page_id)
 				continue
@@ -864,6 +869,22 @@ function sendAccountUnLinkMessage(sender, pageid) {
   }
   sendCall(sender, pageid, messageData);
 }
+
+function ValidURL(str) {
+  var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+    '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+    '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+    '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+    '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+    '(\#[-a-z\d_]*)?$','i'); // fragment locater
+  if(!pattern.test(str)) {
+    alert("Please enter a valid URL.");
+    return false;
+  } else {
+    return true;
+  }
+}
+
 
 
 // spin spin sugar
