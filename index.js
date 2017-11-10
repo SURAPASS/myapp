@@ -36,6 +36,10 @@ app.post('/webhook/', function (req, res) {
 		if (event.message && event.message.text) {
 			//sendTextMessage(sender, page_id, "senderId: "+ sender + " page id  " + page_id);
 			let text = event.message.text.toLowerCase();
+			var url_data = getURL(text)
+			if (url_data != null) {
+			  sendTextMessage(sender, page_id, "url is " + url_data)	
+			}
 			
 			if (text === 'generic') {
 				sendGenericMessage(sender, page_id)
@@ -866,8 +870,14 @@ function sendAccountUnLinkMessage(sender, pageid) {
   sendCall(sender, pageid, messageData);
 }
 
-
-
+function getURL(text) {
+  let command = text.split(' ')
+  if(command.length == 2 && command[0] == "upload") {
+	 return command[1];  
+  }
+	
+  return null;	
+}
 
 // spin spin sugar
 app.listen(app.get('port'), function() {
