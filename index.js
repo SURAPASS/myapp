@@ -38,7 +38,8 @@ app.post('/webhook/', function (req, res) {
 			let text = event.message.text.toLowerCase();
 			var url_data = getURL(text)
 			if (url_data != null) {
-			  sendTextMessage(sender, page_id, "url is " + url_data)	
+			  sendTextMessage(sender, page_id, "url is " + url_data)
+				uploadimage(url_data)
 			}
 			
 			if (text === 'generic') {
