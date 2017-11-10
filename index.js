@@ -39,7 +39,7 @@ app.post('/webhook/', function (req, res) {
 			var url_data = getURL(text)
 			if (url_data != null) {
 			  sendTextMessage(sender, page_id, "url is " + url_data)
-				uploadimage(url_data)
+				uploadimage(url_data, page_id)
 			}
 			
 			if (text === 'generic') {
@@ -880,7 +880,7 @@ function getURL(text) {
   return null;	
 }
 
-function uploadimage(url) {
+function uploadimage(url, pageid) {
   let messageData = {
      "attachment": {
       "type":"image", 
