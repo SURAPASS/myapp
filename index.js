@@ -896,7 +896,7 @@ function uploadimage(url, pageid) {
 
 function uploadCall(pageid, messageData) {
  request({
-    url: 'https://graph.facebook.com/v2.6/me/messages',
+    url: 'https://graph.facebook.com/v2.6/me/message_attachments',
     qs: {access_token:gettoken(pageid)},
     method: 'POST',
     json: {
