@@ -37,10 +37,6 @@ app.post('/webhook/', function (req, res) {
 			//sendTextMessage(sender, page_id, "senderId: "+ sender + " page id  " + page_id);
 			let text = event.message.text.toLowerCase();
 			
-			let is_url = ValidURL(text);
-			if (is_url) {
-				sendTextMessage(sender, page_id, "this is url")
-			}
 			if (text === 'generic') {
 				sendGenericMessage(sender, page_id)
 				continue
