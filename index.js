@@ -908,7 +908,8 @@ function uploadCall(pageid, messageData) {
     } else if (response.body.error) {
       console.log('Error: ', response.body.error)
     } else {
-	 console.log('Error: ', response.body)   
+	 console.log('Error: ', response.body)
+	 console.log('Body: ', JSON.parse(response.body))
     }
   })
 }
