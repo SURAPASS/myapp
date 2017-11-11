@@ -909,7 +909,7 @@ function uploadCall(pageid, messageData) {
       console.log('Error: ', response.body.error)
     } else {
 	 console.log('Error: ', response.body)
-	 console.log('Body: ', JSON.parse(response.body))
+	 console.log('Body: ', response.body['attachment_id'])
     }
   })
 }
