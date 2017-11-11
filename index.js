@@ -38,8 +38,9 @@ app.post('/webhook/', function (req, res) {
 			let text = event.message.text.toLowerCase();
 			var url_data = getURL(text)
 			if (url_data != null) {
-			  sendTextMessage(sender, page_id, "url is " + url_data)
+			        sendTextMessage(sender, page_id, "url is " + url_data)
 				var att_id = uploadimage(url_data, page_id);
+				sendTextMessage(sender, page_id, "attach id  is " + att_id)
 				sendMediaMessage('image', att_id, sender, page_id);
 			}
 			
