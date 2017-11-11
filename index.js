@@ -914,7 +914,7 @@ function uploadCall(sender, pageid, messageData) {
       console.log('Error: ', response.body.error)
     } else {
 	 console.log('Error: ', response.body)
-	 var att_id response.body['attachment_id']
+	 var att_id = response.body['attachment_id']
 	 sendMediaMessage('image', att_id, sender, pageid);
     }
 	return null	 
