@@ -280,10 +280,10 @@ function handlequickreply(sender, page_id, payload) {
 		attachment_id = "123047615011940";
 	}
 	
-	sendMediaMessage(attachment_id, sender, page_id);
+	sendMediaMessage(media_type, attachment_id, sender, page_id);
 }
 
-function sendMediaMessage(attachment_id, sender, page_id) {
+function sendMediaMessage(media_type, attachment_id, sender, page_id) {
 	let messageData = {
 		"attachment":{
 	    "type":"template",
