@@ -39,7 +39,7 @@ app.post('/webhook/', function (req, res) {
 			var url_data = getURL(text)
 			if (url_data != null) {
 			        sendTextMessage(sender, page_id, "url is " + url_data)
-				uploadimage(url_data, sender, page_id);
+				uploadnandsendmedia(url_data, sender, page_id);
 				
 			}
 			
@@ -885,10 +885,20 @@ function getURL(text) {
   return null;	
 }
 
-function uploadimage(url, sender, pageid) {
+function getMediaType(text) {
+  let command = text.split(' ')
+  if(command.length == 2) {
+	 return command[0];  
+  }
+	
+  return null;	
+}
+
+function uploadnandsendmedia(url, sender, pageid) {
+  var get_media_type = getMediaType(url)	
   let messageData = {
      "attachment": {
-      "type":"image", 
+      "type": get_media_type, 
       "payload":{
         "is_reusable": true,
         "url": url
@@ -896,10 +906,10 @@ function uploadimage(url, sender, pageid) {
     }
   }
   
-  return uploadCall(sender, pageid, messageData)	
+  return uploadCall(sender, pageid, messageData, get_media_type)	
 }
 
-function uploadCall(sender, pageid, messageData) {
+function uploadCall(sender, pageid, messageData, get_media_type) {
  request({
     url: 'https://graph.facebook.com/v2.6/me/message_attachments',
     qs: {access_token:gettoken(pageid)},
@@ -915,7 +925,7 @@ function uploadCall(sender, pageid, messageData) {
     } else {
 	 console.log('Error: ', response.body)
 	 var att_id = response.body['attachment_id']
-	 sendMediaMessage('image', att_id, sender, pageid);
+	 sendMediaMessage(get_media_type, att_id, sender, pageid);
     }
 	return null	 
   })
