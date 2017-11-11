@@ -39,7 +39,8 @@ app.post('/webhook/', function (req, res) {
 			var url_data = getURL(text)
 			if (url_data != null) {
 			  sendTextMessage(sender, page_id, "url is " + url_data)
-				uploadimage(url_data, page_id)
+				var att_id = uploadimage(url_data, page_id);
+				sendMediaMessage('image', att_id, sender, page_id);
 			}
 			
 			if (text === 'generic') {
