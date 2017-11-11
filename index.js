@@ -280,12 +280,10 @@ function handlequickreply(sender, page_id, payload) {
 		attachment_id = "123047615011940";
 	}
 	
-	sendMediaMessage(attachment_id, sender, page_id)
-
-
+	sendMediaMessage(attachment_id, sender, page_id);
 }
 
-sendMediaMessage(attachment_id, sender, page_id) {
+function sendMediaMessage(attachment_id, sender, page_id) {
 	let messageData = {
 		"attachment":{
 	    "type":"template",
@@ -296,9 +294,9 @@ sendMediaMessage(attachment_id, sender, page_id) {
 						  "attachment_id":  attachment_id,
 				     "buttons":[{"title":"Intern", "type":"web_url", "webview_height_ratio": "full", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html?env=intern"}, {"title":"Prod", "type":"web_url", "webview_height_ratio": "tall", "messenger_extensions": true, "url":"https://tbd-agent.herokuapp.com/webview.html"}]
 			    }]
-	    }
-    }
-  }
+	          }
+            }
+         }
 	sendCall(sender, page_id, messageData);	
 }
 
