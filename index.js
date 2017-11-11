@@ -279,7 +279,13 @@ function handlequickreply(sender, page_id, payload) {
 	if (payload ==  "GIF_ATTACHMENT") {
 		attachment_id = "123047615011940";
 	}
+	
+	sendMediaMessage(attachment_id, sender, page_id)
 
+
+}
+
+sendMediaMessage(attachment_id, sender, page_id) {
 	let messageData = {
 		"attachment":{
 	    "type":"template",
@@ -293,7 +299,7 @@ function handlequickreply(sender, page_id, payload) {
 	    }
     }
   }
-	sendCall(sender, page_id, messageData);
+	sendCall(sender, page_id, messageData);	
 }
 
 
@@ -891,7 +897,7 @@ function uploadimage(url, pageid) {
     }
   }
   
-  uploadCall(pageid, messageData)	
+  return uploadCall(pageid, messageData)	
 }
 
 function uploadCall(pageid, messageData) {
@@ -909,8 +915,9 @@ function uploadCall(pageid, messageData) {
       console.log('Error: ', response.body.error)
     } else {
 	 console.log('Error: ', response.body)
-	 console.log('Body: ', response.body['attachment_id'])
+	 return response.body['attachment_id']
     }
+	return null	 
   })
 }
 
