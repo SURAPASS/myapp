@@ -879,7 +879,7 @@ function sendAccountUnLinkMessage(sender, pageid) {
 function getURL(text) {
   let command = text.split(' ')
   if(command.length == 2 && (command[0] == "image" || command[0] == "video"
-) {
+)) {
 	 return command[1];  
   }
 	
