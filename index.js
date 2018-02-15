@@ -168,6 +168,10 @@ app.post('/webhook/', function (req, res) {
 			sendTextMessage(sender, page_id, "Postback received: "+text.substring(0, 200))
 			continue
 		}
+		
+		if (event.checkout_update) {
+			console.log("checkout received");
+		}
 
     if (event.referral) {
             let text = JSON.stringify(event.referral)
