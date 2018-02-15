@@ -32,7 +32,8 @@ app.post('/webhook/', function (req, res) {
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = req.body.entry[0].messaging[i]
 		       console.log("Dumpping messaging field");
-			console.log(event.message);
+		       console.log(event);
+		       console.log(event.message);
 
 		let sender = event.sender.id
 		let page_id = event.recipient.id
