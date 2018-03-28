@@ -205,13 +205,19 @@ const token2 = "EAALsKrSyf2MBAKJ0tPOmslV6TDT5WEMqpm3LfsIcC7QUjyw3dpXsijypZAZCUnU
 //const token = "EAALsKrSyf2MBAHaqfZAvV9JmUaw6meqXJ8bpWF2ZCWPSOkDXm7pJUb3JGGZCy1mSvhg82cj9E8JRYbwUvpqzP2m8fZAn9edXZA5LPasfl0P9rCb8WNg989FI5HLJj7WG3tQtFc8ecYYjT2q6aLMI7O4B1HZCVZCF4HzIuI5DWy34AZDZD"
 const token3 = "EAALsKrSyf2MBAHshbjLZB8Oks2Qap9ZCbFpvWjPCJ8MqQlRQx9AUicEQC4d1lEE9ZAcJT6ZCZBiwqv85SkVAvyKTzwRvxxUkxKhwWvnaydJT8YkPBLC3ROfV3hjfvxyeO3pr2KNVtvibCxCnZBmPApSQKhhwSJZBHgcZCm30PxFxPQZDZD";
 const token4 = "EAACMbNwv3J4BANZB9YZCi5IFhwRJHe7BZALRsPEqOs5Gl5FBzpP4IwZAvRBlmURydqhObNVULVALS5UJqcEOHpg7VPsNCm4rQw9XeXTSP26U97SbkMBToGELhszn4JDTb7mTEzAXq8HVVVJISG1mHPG8V9ms3ql5jBs64KCbUAZDZD"
+const token5 = "EAALsKrSyf2MBAJjZAsQzhQISY2HtwncPbpZCYwM4NpZBMVW5fUDruoaG3kfYrZAaIt5GJZACN81pVfBQWZBYWPA37tBKAljPZBa0NKsjaB8LuyodePtTlMGo15E4ZAhd9CbGOjJlLR2bMUc6id5fXSck9zGZAzrxdCuX4h091G9Y5tAZDZD"
+
 function gettoken(page_id) {
 	if (page_id == "122194738430561") {
 		 return token3;
 	}
 	
-	if (page_id == "1910532595864660") {
+	if (page_id == "161581587887637") {
 		return token4;
+	}
+	
+	if (page_id == "") {
+		return token5;
 	}
 	
 	return page_id == "1535203003449978" ? token: token2;
