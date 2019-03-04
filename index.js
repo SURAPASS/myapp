@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 // parse application/json
 app.use(bodyParser.json())
 
-// index
+// indexfdsfsd
 app.get('/', function (req, res) {
-	res.send('hello world i am a secret bot')
+	res.send('hello world i am a secret bot.')
 })
 
 // for facebook verification
